@@ -12,3 +12,7 @@
 (define-data-var ticket-price uint u1000000) ;; 1 bscoin = 1000000( 6 decimals)
 (define-data-var fee-percentage uint u10)
 (define-data-var owner principal tx-sender)
+
+;; maping
+(define-map tickets principal uint) ;; this tracks tickets per user
+(define-map ticket-entries { user: principal, ticket-number: uint } principal) ;; this maps ticket number to users
