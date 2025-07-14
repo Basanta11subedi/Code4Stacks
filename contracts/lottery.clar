@@ -102,7 +102,7 @@
           (block-hash (unwrap! (get-stacks-block-info? id-header-hash (- stacks-block-height u1)) err-no-winner))
       )
       (let (
-          (truncated-hash (unwrap! (as-max-len? (unwrap! (slice? block-hash u0 u16) (err u1)) u16) (err u1)))
+            (truncated-hash (unwrap! (slice? block-hash u0 u16) err-no-winner))
       )
 
       (let (
