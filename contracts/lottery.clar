@@ -102,13 +102,13 @@
           (block-hash (unwrap! (get-stacks-block-info? id-header-hash (- stacks-block-height u1)) err-no-winner))
       )
       (let (
-            (truncated-hash (unwrap! (slice? block-hash u0 u16) err-no-winner))
+          (truncated-hash (unwrap! (as-max-len? (unwrap! (slice? block-hash u0 u16) (err u1)) u16) (err u1)))
       )
 
       (let (
           (hash-uint (buff-to-uint-le truncated-hash))
       )
-      
+
       (let (
           (winning-ticket (+ (mod hash-uint total-tickets-sold) u1))
       )
